@@ -1,0 +1,371 @@
+let mapleader=' '
+
+set scrolloff=5 " 在上下移动光标时，光标的上方或下方至少会保留显示的行数
+set number ""
+set relativenumber " 相对行号
+
+set hlsearch  "高亮搜索
+set incsearch "在输入要搜索的文字时，实时匹配
+set ignorecase "搜索模式里忽略大小写
+set smartcase "如果搜索模式包含大写字符，不使用 'ignorecase' 选项，只有在输入搜索模式并且打开 'ignorecase' 选项时才会使用
+set history=100000
+set clipboard=unnamed
+
+"set so=5 "可以令屏幕滚动时在光标上下方保留5行预览代码
+
+" clear the highlighted search result
+nnoremap <Leader>sc :nohlsearch<CR>
+
+nnoremap <Leader>fs :w<CR>
+
+" Quit normal mode
+nnoremap <Leader>q  :q<CR>
+nnoremap <Leader>Q  :qa!<CR>
+
+" 关闭当前tab
+nnoremap <Leader>x :action CloseEditor<cr>
+
+" 回复关闭的标签
+nnoremap <Leader>X :action ReopenClosedTab<cr>
+
+" 关闭其他标签 
+nnoremap <Leader>on :action CloseAllEditorsButActive<CR>
+
+" 关闭所有tab
+nnoremap <Leader>tac :action CloseAllEditors<CR>
+
+"在项目中替换
+nnoremap <Leader>rip :action ReplaceInPath<CR>
+
+"在当前项目中查找
+nnoremap <Leader>fip :action FindInPath<CR>
+
+"在当前文件中替换
+nnoremap <Leader>rf :action Replace<CR>
+
+"在当前文件中查找
+nnoremap <Leader>ff :action Find<CR>
+
+"退到上一次编辑的地方
+nnoremap <Leader>jj :action JumpToLastChange<CR>
+nnoremap <Leader>jk :action JumpToNextChange<CR>
+
+"弹出切换tab
+nnoremap <Leader><Leader>s :action Switcher<CR>
+
+nnoremap <Leader>sh :action LocalHistory.ShowHistory<CR>
+
+nnoremap <Leader>fc :action ToggleFullScreen<CR>
+
+" Move half page faster
+nnoremap <Leader>d  <C-d>
+nnoremap <Leader>u  <C-u>
+
+" Insert mode shortcut
+inoremap <C-h> <Left>
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-l> <Right>
+inoremap <C-a> <Home>
+inoremap <C-e> <End>
+inoremap <C-d> <Delete>
+
+" Quit insert mode
+inoremap jk <Esc>
+
+" Quit visual mode
+vnoremap v <Esc>
+
+" Move to the start of line
+nnoremap H ^
+
+" Move to the end of line
+nnoremap L $
+
+" Redo
+nnoremap U <C-r>
+
+" Yank to the end of line
+nnoremap Y y$
+
+" Window operation
+nnoremap <Leader>ww <C-W>w
+nnoremap <Leader>wd <C-W>c
+nnoremap <Leader>wj <C-W>j
+nnoremap <Leader>wk <C-W>k
+nnoremap <Leader>wh <C-W>h
+nnoremap <Leader>wl <C-W>l
+nnoremap <Leader>ws <C-W>s
+nnoremap <Leader>w- <C-W>s
+nnoremap <Leader>wv <C-W>v
+nnoremap <Leader>w\| <C-W>v
+
+" Tab operation
+nnoremap tn gt
+nnoremap tp gT
+
+" built in search looks better
+nnoremap / :action Find<CR>
+" but preserve ideavim search
+nnoremap <Leader>/ /
+
+nnoremap <Leader>;; :action CommentByLineComment<CR>
+
+nnoremap <Leader>bb :action ToggleLineBreakpoint<CR>
+nnoremap <Leader>br :action ViewBreakpoints<CR>
+
+nnoremap <Leader>cv :action ChangeView<CR>
+
+nnoremap <Leader>cd :action ChooseDebugConfiguration<CR>
+
+" 查找方法
+nnoremap <Leader>ga :action GotoAction<CR>
+
+" 查找类
+nnoremap <Leader>gc :action GotoClass<CR>
+
+" 查找文件
+nnoremap <Leader>gf :action GotoFile<CR>
+
+" 跳转到方法或类的定义处
+nnoremap <Leader>gd :action GotoDeclaration<CR>
+
+" 跳转到接口
+nnoremap <Leader>gi :action GotoImplementation<CR>
+
+" 跳转到
+nnoremap <Leader>gs :action GotoSuperMethod<CR>
+
+" 项目管理
+nnoremap <Leader>pj :action ManageRecentProjects<CR>
+
+" 跳转到测试文件
+nnoremap <Leader>gt :action GotoTest<CR>
+
+" 向上跳转到方法名处
+nnoremap <Leader>gk :action MethodUp<CR>
+
+" 向下跳转到方法名处
+nnoremap <Leader>gj :action MethodDown<CR>zz
+
+" 显示文件路径
+nnoremap <Leader>fp :action ShowFilePath<CR>
+
+" 显示引用了当前类的所有方法
+nnoremap <Leader>fu :action FindUsages<CR>
+
+" 
+nnoremap <Leader>ic :action InspectCode<CR>
+
+" 启动命令窗口 
+nnoremap <Leader>kl :action ActivateProjectToolWindow<CR>
+
+"  
+nnoremap <Leader>oi :action OptimizeImports<CR>
+
+" 显示右键菜单 (失效)
+nnoremap <Leader>pm :action ShowPopupMenu<CR>
+
+" 运行文件 
+nnoremap <Leader>rc :action ChooseRunConfiguration<CR>
+
+" 重命名 
+nnoremap <Leader>rn :action RenameElement<CR>:action RenameElement<CR>
+
+" 文件重命名
+nnoremap <Leader>rp :action RenameProject<CR>
+
+" 模糊搜索 
+nnoremap <Leader>se :action SearchEverywhere<CR>
+
+" 显示引用当前变量的方法及位置 
+nnoremap <Leader>su :action ShowUsages<CR>
+
+" 包裹当前代码, 没有选中的代码时, 包裹整行 
+nnoremap <Leader>sd :action SurroundWith<CR>
+
+" 显示当前文件的所有类和全局变量 
+nnoremap <Leader>sp :action FileStructurePopup<CR>
+
+" 关闭当前活动标签 
+nnoremap <Leader>tt :action CloseActiveTab<CR>
+
+map <C-I> <C-O>A;
+" 补全行尾, 换行并进入到编辑模式
+map <Leader>e <esc>A;<esc>o
+map <Leader>,o <esc>f,a<CR><esc>
+map <Leader>,, <esc>f=a
+map <Leader>co <esc>^C<esc>jA<Tab><esc>p
+
+" 从光标位置删除到字符串首部, 且进入到编辑模式 
+nnoremap <Leader>k :action EditorDeleteToWordStart<CR>i
+
+" 快速开启
+nnoremap <Leader>vi :e E:\Vim\_vimrc
+
+" Reload .ideavimrc
+nnoremap <Leader>dvi :e C:\Users\Administrator\_ideavimrc<cr>
+
+" Reload phpstorm
+nnoremap <Leader>rs :e C:\Users\Administrator\.PhpStorm2017.2\system\restart\restart.exe<cr>
+" ============================================================================
+" emacsIDEAs
+" ============================================================================
+" Press `f` to activate AceJump
+"map f :action AceAction<CR>
+"" Press `F` to activate Target Mode
+"map F :action AceTargetAction<CR>
+" Press `t` to activate Line Mode
+" map t :action AceLineAction<CR>
+
+" ============================================================================
+" emacsIDEAs
+"
+" ============================================================================
+nnoremap <Leader>;s :action emacsIDEAs.AceJumpSelect<CR>
+nnoremap <Leader>;w :action emacsIDEAs.AceJumpWord<CR>
+nnoremap - :action emacsIDEAs.AceJump<CR>
+nnoremap <Leader>;y :action emacsIDEAs.AceJumpCopy<CR>
+nnoremap <Leader>;c :action emacsIDEAs.AceJumpCut<CR>
+nnoremap <Leader>;n :action HighlightNextSymbol<CR>
+nnoremap <Leader>;p :action HighlightPrevSymbol<CR>
+
+"inoremap <Leader>` :action emacsIDEAs.AceJump<CR>
+"inoremap <Leader>;s :action emacsIDEAs.AceJumpSelect<CR>
+"inoremap <Leader>;w :action emacsIDEAs.AceJumpWord<CR>
+"inoremap <Leader>;y :action emacsIDEAs.AceJumpCopy<CR>
+"inoremap <Leader>;c :action emacsIDEAs.AceJumpCut<CR>
+"inoremap <Leader>;n :action HighlightNextSymbol<CR>
+"inoremap <Leader>;p :action HighlightPrevSymbol<CR>
+"
+"vnoremap <Leader>;s :action emacsIDEAs.AceJumpSelect<CR>
+"vnoremap <Leader>;w :action emacsIDEAs.AceJumpWord<CR>
+"vnoremap ; :action emacsIDEAs.AceJump<CR>
+"vnoremap <Leader>;y :action emacsIDEAs.AceJumpCopy<CR>
+"vnoremap <Leader>;c :action emacsIDEAs.AceJumpCut<CR>
+"vnoremap <Leader>;n :action HighlightNextSymbol<CR>
+"vnoremap <Leader>;p :action HighlightPrevSymbol<CR>
+"
+"" Copy
+"nnoremap <Leader>cb :action emacsIDEAs.AceJumpCopy.Block<CR>
+"nnoremap <Leader>cl :action emacsIDEAs.AceJumpCopy.Line<CR>
+"nnoremap <Leader>cp :action emacsIDEAs.AceJumpCopy.Paragraph<CR>
+"nnoremap <Leader>cq :action emacsIDEAs.AceJumpCopy.Quote<CR>
+"nnoremap <Leader>cj :action emacsIDEAs.AceJumpCopy.String<CR>
+"nnoremap <Leader>cle :action emacsIDEAs.AceJumpCopy.ToLineEnd<CR>
+"nnoremap <Leader>clb :action emacsIDEAs.AceJumpCopy.ToLineStart<CR>
+"nnoremap <Leader>cpe :action emacsIDEAs.AceJumpCopy.ToParagraphEnd<CR>
+"nnoremap <Leader>cpb :action emacsIDEAs.AceJumpCopy.ToParagraphStart<CR>
+"nnoremap <Leader>cw :action emacsIDEAs.AceJumpCopy.Word<CR>
+"
+"" Delete
+"nnoremap <Leader>db :action emacsIDEAs.AceJumpDelete.Block<CR>
+"nnoremap <Leader>dl :action emacsIDEAs.AceJumpDelete.Line<CR>
+"nnoremap <Leader>dp :action emacsIDEAs.AceJumpDelete.Paragraph<CR>
+"nnoremap <Leader>dq :action emacsIDEAs.AceJumpDelete.Quote<CR>
+"nnoremap <Leader>dj :action emacsIDEAs.AceJumpDelete.String<CR>
+"nnoremap <Leader>dle :action emacsIDEAs.AceJumpDelete.ToLineEnd<CR>
+"nnoremap <Leader>dlb :action emacsIDEAs.AceJumpDelete.ToLineStart<CR>
+"nnoremap <Leader>dpe :action emacsIDEAs.AceJumpDelete.ToParagraphEnd<CR>
+"nnoremap <Leader>dpb :action emacsIDEAs.AceJumpDelete.ToParagraphStart<CR>
+"nnoremap <Leader>dw :action emacsIDEAs.AceJumpDelete.Word<CR>
+"
+"" ObtainThenReplace
+"nnoremap <Leader>b :action emacsIDEAs.AceJumpObtainThenReplace.Block<CR>
+"nnoremap <Leader>l :action emacsIDEAs.AceJumpObtainThenReplace.Line<CR>
+"nnoremap <Leader>p :action emacsIDEAs.AceJumpObtainThenReplace.Paragraph<CR>
+""nnoremap <Leader>q :action emacsIDEAs.AceJumpObtainThenReplace.Quote<CR>
+"nnoremap <Leader>j :action emacsIDEAs.AceJumpObtainThenReplace.String<CR>
+"nnoremap <Leader>le :action emacsIDEAs.AceJumpObtainThenReplace.ToLineEnd<CR>
+"nnoremap <Leader>lb :action emacsIDEAs.AceJumpObtainThenReplace.ToLineStart<CR>
+"nnoremap <Leader>pe :action emacsIDEAs.AceJumpObtainThenReplace.ToParagraphEnd<CR>
+"nnoremap <Leader>pb :action emacsIDEAs.AceJumpObtainThenReplace.ToParagraphStart<CR>
+"nnoremap <Leader>w :action emacsIDEAs.AceJumpObtainThenReplace.Word<CR>
+"
+""move
+"nnoremap <Leader>mb :action emacsIDEAs.AceJumpMove.Block<CR>
+"nnoremap <Leader>ml :action emacsIDEAs.AceJumpMove.Line<CR>
+"nnoremap <Leader>mp :action emacsIDEAs.AceJumpMove.Paragraph<CR>
+"nnoremap <Leader>mq :action emacsIDEAs.AceJumpMove.Quote<CR>
+"nnoremap <Leader>mj :action emacsIDEAs.AceJumpMove.String<CR>
+"nnoremap <Leader>mle :action emacsIDEAs.AceJumpMove.ToLineEnd<CR>
+"nnoremap <Leader>mlb :action emacsIDEAs.AceJumpMove.ToLineStart<CR>
+"nnoremap <Leader>mpe :action emacsIDEAs.AceJumpMove.ToParagraphEnd<CR>
+"nnoremap <Leader>mpb :action emacsIDEAs.AceJumpMove.ToParagraphStart<CR>
+"nnoremap <Leader>mw :action emacsIDEAs.AceJumpMove.Word<CR>
+"
+""replace 
+"nnoremap <Leader>rb :action emacsIDEAs.AceJumpAndReplace.Block<CR>
+"nnoremap <Leader>rg :action emacsIDEAs.AceJumpAndReplace.Group<CR>
+"nnoremap <Leader>rl :action emacsIDEAs.AceJumpAndReplace.Line<CR>
+"nnoremap <Leader>rp :action emacsIDEAs.AceJumpAndReplace.Paragraph<CR>
+"nnoremap <Leader>rq :action emacsIDEAs.AceJumpAndReplace.Quote<CR>
+"nnoremap <Leader>rj :action emacsIDEAs.AceJumpAndReplace.String<CR>
+"nnoremap <Leader>rw :action emacsIDEAs.AceJumpAndReplace.Word<CR>
+
+#something from web
+" ============================================================================
+" Editor control
+" ============================================================================
+
+" Enter the command-line mode
+noremap <CR> :
+
+" Laravel Mappings
+" ================
+" Open and edit routes file
+nnoremap <Leader>lr :e app/Http/routes.php<CR>
+nnoremap <Leader>lca :e config/app.php<cr>
+nnoremap <Leader>lcd :e config/database.php<cr>
+nnoremap <Leader>lc :e composer.json<cr>
+nnoremap <Leader>le :e .env<cr>
+
+" Put search results in the middle of the screen
+nnoremap n nzz
+nnoremap N Nzz
+
+
+" 插入模式下用绝对行号, 普通模式下用相对
+autocmd InsertEnter * :set norelativenumber number
+autocmd InsertLeave * :set relativenumber
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set norelativenumber number
+  else
+    set relativenumber
+  endif
+endfunc
+
+
+" 插入模式下的缩略简写
+inoremap `        ->
+inoremap ~        =>
+inoremap <<       "<br />";
+
+" 普通模式下插入换行符
+noremap <Leader><CR> o<ESC>
+nnoremap <Leader>o o<ESC>
+nnoremap <Leader>O O<ESC>
+
+" 撤销上一次命令行set操作
+"map <Leader>u :call UndoSetCommand()<CR>
+" 重复上一次命令行操作
+noremap <Leader>re :@:<CR>
+
+" 搜索项目文件 
+noremap <Leader>` :action SelectInProjectView<CR>
+
+" 开启命令行窗口
+map <Leader>tl :action ActivateTerminalToolWindow<CR>
+
+nnoremap [<space> 	O<esc>j
+nnoremap ]<space> 	o<esc>k
+nnoremap [q 		:action PreviousOccurence<cr>
+nnoremap ]q 		:action NextOccurence<cr>
+nnoremap ]n   		:action FindNext<cr>
+nnoremap [n   		:action FindPrevious<cr>
+nnoremap ]p 		:action NextParameter<cr>
+nnoremap [p 		:action PrevParameter<cr>
+
+" r-bpldca7858d65434.redis.rds.aliyuncs.com 3DWKy543Rr2 端口6379
+" rm-bpluOe90b3o2drw5u.mysql.rds.aliyuncs.com se2_dexw13 y543RrWSel*
